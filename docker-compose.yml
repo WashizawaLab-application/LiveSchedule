@@ -1,0 +1,21 @@
+version: '3.9'
+services:
+  server-side:
+    container_name: server-side
+    build: ./server-side
+    ports:
+      - 8000:8000
+    tty: true
+    volumes:
+      - ./server-side/front_app:/workspace:cached
+
+  front-side:
+    container_name: front-side
+    build: ./front-side
+    ports:
+      - 3000:3000
+    tty: true
+    volumes:
+      - ./front-side:/workspace:cached
+    depends_on:
+      - server-side

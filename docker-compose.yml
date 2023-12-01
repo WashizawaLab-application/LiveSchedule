@@ -7,7 +7,7 @@ services:
       - 8000:8000
     tty: true
     volumes:
-      - ./server-side/front_app:/workspace:cached
+      - ./server-side:/workspace:cached
 
   front-side:
     container_name: front-side

@@ -16,6 +16,10 @@ services:
       - 3000:3000
     tty: true
     volumes:
-      - ./front-side:/workspace:cached
+      - ./front-side/front_app:/workspace:cached
+      - react_node_modules:/workspace/node_modules
     depends_on:
       - server-side
+
+volumes:
+  react_node_modules:

@@ -52,7 +52,7 @@ class UserDetailView(APIView):
     authentication_classes = (Authentication,)
     permission_classes = (IsAuthenticated,)
 
-    def get(self, request):
+    def post(self, request):
         user = User.objects.filter(user_id=request.data['user_id']).first()
 
         if not user:

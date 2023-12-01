@@ -1,3 +1,10 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import User, AccessToken
+
+
+class AccessTokenAdmin(admin.ModelAdmin):
+    fields = ['user', 'token', 'access_datetime']
+
+admin.site.register(User)
+admin.site.register(AccessToken, AccessTokenAdmin)

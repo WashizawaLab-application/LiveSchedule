@@ -19,7 +19,6 @@ export const Login = () => {
             localStorage.setItem('user_id', res.data.user_id);
             localStorage.setItem('token', res.data.token);
             console.log(res.data.user_id, res.data.token);
-            alert('ログイン成功！');
             navigate('/');
         })
         .catch((err) => {
@@ -43,7 +42,7 @@ export const Login = () => {
                     <input
                         type='text'
                         className='input input-bordered input-primary w-full max-w-xs'
-                        placeholder='ユーザID'
+                        placeholder='User ID'
                         value={user_id}
                         onChange={(e) => setUser_id(e.target.value)}
                         required
@@ -53,7 +52,7 @@ export const Login = () => {
                     <input
                         type='password'
                         className='input input-bordered input-primary w-full max-w-xs'
-                        placeholder='パスワード'
+                        placeholder='Password'
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         required

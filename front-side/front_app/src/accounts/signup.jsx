@@ -37,35 +37,58 @@ export const SignUp = () => {
         }
     };
 
+    const RenderingLogin = (e) => {
+        e.preventDefault();
+
+        navigate('/login');
+    }
+
     return (
-        <div className="Register">
-            <h1>アカウント新規登録画面</h1>
+        <div>
+            <div className='text-5xl font-sans font-bold mt-20 mb-16'>Resister</div>
             <form onSubmit={handleSubmit} className='Form'>
-                <input
-                    type='text'
-                    placeholder='ユーザID'
-                    value={user_id}
-                    onChange={(e) => setUser_id(e.target.value)}
-                />
-                <input
-                    type='text'
-                    placeholder='ユーザ名'
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                />
-                <input
-                    type='password'
-                    placeholder='パスワード'
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-                <input
-                    type='password'
-                    placeholder='確認パスワード'
-                    value={password_confirmation}
-                    onChange={(e) => setPassword_confirmation(e.target.value)}
-                />
-                <button type='submit'>登録</button>
+                <div className='m-8'>
+                    <input
+                        type='text'
+                        className='input input-bordered input-primary w-full max-w-xs'
+                        placeholder='User ID'
+                        value={user_id}
+                        onChange={(e) => setUser_id(e.target.value)}
+                    />
+                </div>
+                <div className='m-8'>
+                    <input
+                        type='text'
+                        className='input input-bordered input-primary w-full max-w-xs'
+                        placeholder='User Name'
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                    />
+                </div>
+                <div className='m-8'>
+                    <input
+                        type='password'
+                        className='input input-bordered input-primary w-full max-w-xs'
+                        placeholder='Password'
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                </div>
+                <div className='m-8'>
+                    <input
+                        type='password'
+                        className='input input-bordered input-primary w-full max-w-xs'
+                        placeholder='Password Again'
+                        value={password_confirmation}
+                        onChange={(e) => setPassword_confirmation(e.target.value)}
+                    />
+                </div>
+                <div className='m-8'>
+                    <button type='submit' className='text-xl btn btn-wide btn-outline btn-primary'>Sign Up</button>
+                </div>
+                <div className='m-8'>
+                    <button onClick={RenderingLogin} type='submit' className='text-xl btn btn-wide btn-outline btn-primary'>Log In</button>
+                </div>
             </form>
         </div>
     );

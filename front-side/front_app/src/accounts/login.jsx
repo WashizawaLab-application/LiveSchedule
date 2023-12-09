@@ -29,27 +29,47 @@ export const Login = () => {
         });
     };
 
+    const RenderingSignup = (e) => {
+        e.preventDefault();
+
+        navigate('/signup');
+    }
+
     return (
-        <div className="Login">
-            <h1>ログイン</h1>
+        <div>
+            <div className='text-5xl font-sans font-bold mt-20 mb-16'>Welcome</div>
             <form onSubmit={handleSubmit}>
-                <input
-                    type='text'
-                    placeholder='ユーザID'
-                    value={user_id}
-                    onChange={(e) => setUser_id(e.target.value)}
-                    required
-                />
-                <input
-                    type='password'
-                    placeholder='パスワード'
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                />
+                <div className='m-8'>
+                    <input
+                        type='text'
+                        className='input input-bordered input-primary w-full max-w-xs'
+                        placeholder='ユーザID'
+                        value={user_id}
+                        onChange={(e) => setUser_id(e.target.value)}
+                        required
+                    />
+                </div>
+                <div className='m-8'>
+                    <input
+                        type='password'
+                        className='input input-bordered input-primary w-full max-w-xs'
+                        placeholder='パスワード'
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                </div>
                 {error && <div style={{ color: 'red' }}>{error}</div>}
-                <button type='submit'>ログイン</button>
+                <div className='m-8'>
+                    <button type='submit' className='text-xl btn btn-wide btn-outline btn-primary'>Log In</button>
+                </div>
             </form>
+            <div className="flex flex-col w-full">
+                <div className="mx-8 divider divider-primary text-xl">OR</div>
+            </div>
+            <div className='m-8'>
+                <button onClick={RenderingSignup} className='text-xl btn btn-wide btn-outline btn-primary'>Sign Up</button>
+            </div>
         </div>
     );
 };

@@ -87,7 +87,7 @@ export const SignUp = () => {
                     <button type='submit' className='text-xl btn btn-wide btn-outline btn-primary'>Sign Up</button>
                 </div>
                 <div className='m-8'>
-                    <button onClick={RenderingLogin} type='submit' className='text-xl btn btn-wide btn-outline btn-primary'>Log In</button>
+                    <button onClick={RenderingLogin} type='submit' className='text-xl btn btn-wide btn-outline'>Log In</button>
                 </div>
             </form>
         </div>

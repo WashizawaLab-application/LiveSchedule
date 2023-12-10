@@ -63,11 +63,8 @@ export const Login = () => {
                     <button type='submit' className='text-xl btn btn-wide btn-outline btn-primary'>Log In</button>
                 </div>
             </form>
-            <div className="flex flex-col w-full">
-                <div className="mx-8 divider divider-primary text-xl">OR</div>
-            </div>
             <div className='m-8'>
-                <button onClick={RenderingSignup} className='text-xl btn btn-wide btn-outline btn-primary'>Sign Up</button>
+                <button onClick={RenderingSignup} className='text-xl btn btn-wide btn-outline'>Sign Up</button>
             </div>
         </div>
     );

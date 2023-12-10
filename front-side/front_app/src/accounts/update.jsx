@@ -12,14 +12,21 @@ export const UserUpdate = () => {
     const [error, setError] = useState(null);
     const navigate = useNavigate();
 
-    const fetchUser = async () => {
+    const fetchUser = () => {
         try {
-            const response = await axios.post('http://127.0.0.1:8000/accounts/user-detail/', {
+            axios.post('http://127.0.0.1:8000/accounts/user-detail/', {
                 user_id: user_id,
             }, {headers: {
                 'X-AUTH-TOKEN': token,
-            }});
-            setUser(response.data.user);
+            }})
+            .then((res) => {
+                setUser(res.data.user);
+            })
+            .catch((err) => {
+                if (err.response.status === 403) {
+                    navigate('/login');
+                };
+            });
         } catch (err) {
             if (axios.isAxiosError(err)) {
                 const errorMsg = err.response?.data?.message || 'ユーザ情報の取得に失敗しました．';

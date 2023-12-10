@@ -21,10 +21,9 @@ export const Login = () => {
             console.log(res.data.user_id, res.data.token);
             navigate('/');
         })
-        .catch((err) => {
-            setError(err.error);
-            console.log(err);
-            console.error('Error found.');
+        .catch(() => {
+            setError('UserID or Password does not match.');
+            console.error(error);
         });
     };
 

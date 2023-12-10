@@ -73,7 +73,7 @@ class ChannelListView(APIView):
         channels = Channel.objects.filter(user_id=user_id)
 
         if not channels:
-            return Response({'message': 'チャンネル情報が見つかりません'}, status=status.HTTP_404_NOT_FOUND)
+            return Response({'message': 'チャンネル情報が見つかりません'}, status=status.HTTP_200_OK)
         
         items = []
         for channel in channels:

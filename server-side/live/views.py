@@ -2,11 +2,16 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from googleapiclient.discovery import build
-from rest_framework.permissions import AllowAny, IsAuthenticated
+from rest_framework.permissions import IsAuthenticated
+from dotenv import load_dotenv
+import os
 
 from .models import Channel
 from .serializers import RegisterSerializer
 from accounts.authentication import Authentication
+
+
+load_dotenv()
 
 
 class SearchView(APIView):
@@ -14,7 +19,7 @@ class SearchView(APIView):
     permission_classes = (IsAuthenticated,)
 
     def post(self, request):
-        youtube = build('youtube', 'v3', developerKey='AIzaSyBND7HRr4O-WUZY_OYkdplhXt331MqINIc')
+        youtube = build('youtube', 'v3', developerKey=os.getenv('DEVELOPER_KEY'))
         q= request.data['q']
 
         if not q:
@@ -125,7 +130,7 @@ class GetVideoView(APIView):
             channel_id_list.append(channel_id)
         print(channel_id_list)
 
-        youtube = build('youtube', 'v3', developerKey='AIzaSyBND7HRr4O-WUZY_OYkdplhXt331MqINIc')
+        youtube = build('youtube', 'v3', developerKey=os.getenv('DEVELOPER_KEY'))
         items = []
         for channel_id in channel_id_list:
             channel = Channel.objects.filter(channel_id=channel_id).first()

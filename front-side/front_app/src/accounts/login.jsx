@@ -18,7 +18,7 @@ export const Login = () => {
         .then((res) => {
             localStorage.setItem('user_id', res.data.user_id);
             localStorage.setItem('token', res.data.token);
-            console.log(res.data.user_id, res.data.token);
+            // console.log(res.data.user_id, res.data.token);
             navigate('/');
         })
         .catch(() => {

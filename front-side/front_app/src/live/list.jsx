@@ -20,9 +20,8 @@ export const ViewList = () => {
                 'X-AUTH-TOKEN': token,
             }})
             .then((res) => {
-                console.log(res.data.items);
+                // console.log(res.data.items);
                 setItems(res.data.items);
-                console.log(items);
             })
             .catch((err) => {
                 if (err.response.status === 403) {

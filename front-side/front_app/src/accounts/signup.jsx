@@ -28,7 +28,7 @@ export const SignUp = () => {
                 password: password,
                 password_confirmation: password_confirmation,
             });
-            alert('アカウントが作成されました．');
+            // alert('アカウントが作成されました．');
             navigate('/login');
         } catch {
             setError('This user ID is already in use.');
